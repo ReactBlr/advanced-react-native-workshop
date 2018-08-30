@@ -1,59 +1,49 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
-import React, { Component } from 'react';
-import {
-  Platform,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
-
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n'
-    + 'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n'
-    + 'Shake or press menu button for dev menu',
-});
-
-export default class App extends Component {
-  state = {};
-
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit App.js
-        </Text>
-        <Text style={styles.instructions}>
-          {instructions}
-        </Text>
-      </View>
-    );
-  }
-}
+import React from 'react';
+import { StyleSheet, SafeAreaView } from 'react-native';
+import MyStatusBar from './components/MyStatusBar';
+import RootNavigation from './navigation/RootNavigation';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+    backgroundColor: '#ffffff',
   },
 });
+
+const showApiCalls = () => {
+  const baseUrl = 'http://www.mocky.io/';
+  global._fetch = fetch;
+  global.fetch = async (uri, options, ...args) => {
+    const response = await global._fetch(uri, options, ...args);
+    if (uri.includes(baseUrl)) {
+      console.log(
+        '🔵 API Call: ',
+        uri,
+        { request: { uri }, response },
+      );
+    }
+    return response;
+  };
+};
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+    if (__DEV__) {
+      console.disableYellowBox = true;
+      showApiCalls();
+    }
+  }
+
+  render() {
+    return (
+      <SafeAreaView style={styles.container}>
+        <MyStatusBar />
+        <RootNavigation />
+      </SafeAreaView>
+    );
+  }
+}
+
+export default App;

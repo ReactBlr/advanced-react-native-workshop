@@ -12,23 +12,23 @@
   "dependencies": {
     "react": "16.3.1",
     "react-native": "0.55.4",
-    "react-native-vector-icons": "^4.6.0",
-    "react-navigation": "^2.5.5"
+    "react-native-vector-icons": "5.0.0",
+    "react-navigation": "2.12.1"
   },
   "devDependencies": {
-    "babel-eslint": "^8.2.5",
+    "babel-eslint": "9.0.0",
     "babel-jest": "23.4.2",
     "babel-preset-react-native": "4.0.0",
-    "eslint": "^5.0.1",
-    "eslint-config-airbnb": "^17.0.0",
-    "eslint-plugin-import": "^2.13.0",
-    "eslint-plugin-jsx-a11y": "^6.0.3",
-    "eslint-plugin-react": "^7.10.0",
+    "eslint": "5.4.0",
+    "eslint-config-airbnb": "17.1.0",
+    "eslint-plugin-import": "2.14.0",
+    "eslint-plugin-jsx-a11y": "6.1.1",
+    "eslint-plugin-react": "7.11.1",
     "jest": "23.5.0",
-    "react-test-renderer": "16.3.1"
+    "react-test-renderer": "16.4.2"
   },
   "jest": {
     "preset": "react-native"
   },
-  "repository": "https://github.com/ReactBangalore/advanced-react-native-workshop",
+  "repository": "https://github.com/ReactBangalore/advanced-react-native-workshop"
 }
