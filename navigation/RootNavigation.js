@@ -1,20 +1,16 @@
 import { createStackNavigator } from 'react-navigation';
 
-import DrawerNavigator from './DrawerNavigation';
+import TabNavigator from './TabNavigator';
 import ProductScreen from '../screens/ProductScreen';
 
-export default createStackNavigator(
-  {
-    Home: {
-      screen: DrawerNavigator,
-    },
-    Product: {
-      screen: ProductScreen,
-    },
+export default createStackNavigator({
+  Tabs: {
+    screen: TabNavigator,
   },
-  {
-    navigationOptions: () => ({
-      header: null,
-    }),
+  Product: {
+    screen: ProductScreen,
   },
-);
+}, {
+  headerMode: 'none',
+  mode: 'modal',
+});
