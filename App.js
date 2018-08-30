@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, SafeAreaView, TouchableOpacity } from 'react-native';
-import MyStatusBar from './components/MyStatusBar';
-import RootNavigation from './navigation/RootNavigation';
+import MyStatusBar from './src/components/MyStatusBar';
+import RootNavigation from './src/navigation/RootNavigation';
 
 const showApiCalls = () => {
   const baseUrl = 'http://www.mocky.io/';
@@ -44,7 +44,7 @@ export default App;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#ffffff',
+    backgroundColor: '#133046',
   },
 });
 

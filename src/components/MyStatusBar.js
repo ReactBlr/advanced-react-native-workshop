@@ -5,14 +5,15 @@ const MyStatusBar = () => (
   <View>
     <StatusBar
       translucent
-      backgroundColor="black"
+      backgroundColor="#133046"
       animated
+      barStyle="light-content"
     />
     {Platform.OS === 'android' && Platform.Version >= 20 && (
       <View
         style={{
           height: 24,
-          backgroundColor: 'purple',
+          backgroundColor: '#133046',
         }}
       />
     )}

@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   textInput: {
-    backgroundColor: 'white',
+    backgroundColor: '#F1E4B3',
     marginTop: 24,
     padding: 8,
     height: 40,
@@ -133,7 +133,7 @@ const styles = StyleSheet.create({
     borderRadius: 4,
   },
   button: {
-    backgroundColor: 'purple',
+    backgroundColor: '#133046',
     padding: 8,
     borderRadius: 4,
     marginTop: 24,

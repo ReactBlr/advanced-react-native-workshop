@@ -22,6 +22,6 @@ export default ProductScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: '#F1E4B3',
   },
 });

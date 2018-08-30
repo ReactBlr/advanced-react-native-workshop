@@ -21,9 +21,10 @@ const Button = styled.TouchableOpacity.attrs({
 `;
 
 const Icon = styled(Ionicons).attrs({
-  size: 24,
+  size: 32,
   color: (props) => props.selected ? '#F1E4B3' : '#15959F',
-})``;
+})`
+`;
 
 class TabBar extends React.Component {
   state = {
@@ -56,10 +57,10 @@ class TabBar extends React.Component {
           <Icon name="font" selected={selectedIndex === 0} />
         </Button>
         <Button onPress={this.openNewPostScreen} disabled={selectedIndex === 1}>
-          <Icon name="plus" selected={selectedIndex === 1} />
+          <Icon name="pencil" selected={selectedIndex === 1} />
         </Button>
         <Button onPress={this.openOther} disabled={selectedIndex === 2}>
-          <Icon name="rocket" selected={selectedIndex === 2} />
+          <Icon name="flash" selected={selectedIndex === 2} />
         </Button>
       </TabBarContainer>
     );

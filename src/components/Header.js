@@ -27,7 +27,7 @@ export default withNavigation(Header);
 
 const styles = StyleSheet.create({
   header: {
-    backgroundColor: 'white',
+    backgroundColor: '#133046',
     flexDirection: 'row',
     alignItems: 'center',
     height: 44,

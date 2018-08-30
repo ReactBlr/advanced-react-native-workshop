@@ -1,5 +1,5 @@
 import React from 'react';
-import { ActivityIndicator, FlatList, StyleSheet, View, Text, Image } from 'react-native';
+import { ActivityIndicator, FlatList, StyleSheet, View, Text } from 'react-native';
 import ProductCard from '../components/ProductCard';
 
 const GET_DATA_URL = 'http://www.mocky.io/v2/5b35cb7c2f0000692d3763c5';
@@ -36,7 +36,7 @@ class FeedScreen extends React.Component {
       <View style={styles.container}>
         <View style={styles.headerContainer}>
           <Text style={styles.headerText}>
-            Simple shopping app
+            Dear Diary
           </Text>
         </View>
         {isLoading
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   headerContainer: {
-    backgroundColor: 'purple',
+    backgroundColor: '#133046',
     padding: 8,
     flexDirection: 'row',
     alignItems: 'center',
