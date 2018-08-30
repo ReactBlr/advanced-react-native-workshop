@@ -1,5 +1,8 @@
 {
-  "name": "ReactNativeAdvancedWorkshop",
+  "name": "react-native-notebook",
+  "description": "A not so simple boilerplate with some alleged React Native best practices. ",
+  "slug": "react-native-notebook",
+  "license": "MIT",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -8,15 +11,24 @@
   },
   "dependencies": {
     "react": "16.3.1",
-    "react-native": "0.55.4"
+    "react-native": "0.55.4",
+    "react-native-vector-icons": "^4.6.0",
+    "react-navigation": "^2.5.5"
   },
   "devDependencies": {
+    "babel-eslint": "^8.2.5",
     "babel-jest": "23.4.2",
     "babel-preset-react-native": "4.0.0",
+    "eslint": "^5.0.1",
+    "eslint-config-airbnb": "^17.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.10.0",
     "jest": "23.5.0",
     "react-test-renderer": "16.3.1"
   },
   "jest": {
     "preset": "react-native"
-  }
+  },
+  "repository": "https://github.com/ReactBangalore/advanced-react-native-workshop",
 }
