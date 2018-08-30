@@ -8,6 +8,7 @@ import {
   View,
   AsyncStorage,
 } from 'react-native';
+import color from '../theme/color';
 
 const USERNAME = 'admin';
 const PASSWORD = 'password';
@@ -116,6 +117,7 @@ export default LoginScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: color.greyLight,
   },
   form: {
     flex: 1,
@@ -125,7 +127,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   textInput: {
-    backgroundColor: '#F1E4B3',
+    backgroundColor: color.greyLighter,
     marginTop: 24,
     padding: 8,
     height: 40,
@@ -133,7 +135,7 @@ const styles = StyleSheet.create({
     borderRadius: 4,
   },
   button: {
-    backgroundColor: '#133046',
+    backgroundColor: color.greyDark,
     padding: 8,
     borderRadius: 4,
     marginTop: 24,
@@ -141,18 +143,19 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   buttonText: {
-    color: 'white',
+    color: color.greyLighter,
   },
   welcomeText: {
     fontSize: 16,
   },
   logoutButton: {
     borderWidth: 1,
-    borderColor: 'purple',
+    borderColor: color.greyDark,
     borderRadius: 4,
-    padding: 4,
+    padding: 8,
+    margin: 16,
   },
   logoutText: {
-    color: 'purple',
+    color: color.greyDark,
   },
 });

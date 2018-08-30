@@ -2,9 +2,10 @@ import React from 'react';
 import styled from 'styled-components/native';
 import Ionicons from 'react-native-vector-icons/FontAwesome';
 import { withNavigation } from 'react-navigation';
+import color from '../theme/color';
 
 const TabBarContainer = styled.View`
-  backgroundColor: #133046;
+  backgroundColor: ${color.greyDark};
   flexDirection: row;
   alignItems: center;
   justifyContent: space-around;
@@ -22,7 +23,7 @@ const Button = styled.TouchableOpacity.attrs({
 
 const Icon = styled(Ionicons).attrs({
   size: 32,
-  color: (props) => props.selected ? '#F1E4B3' : '#15959F',
+  color: (props) => props.selected ? color.greyLighter : color.grey,
 })`
 `;
 

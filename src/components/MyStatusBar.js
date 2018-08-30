@@ -1,11 +1,12 @@
 import React from 'react';
 import { StatusBar, View, Platform } from 'react-native';
+import color from '../theme/color';
 
 const MyStatusBar = () => (
   <View>
     <StatusBar
       translucent
-      backgroundColor="#133046"
+      backgroundColor={color.greyDarker}
       animated
       barStyle="light-content"
     />
@@ -13,7 +14,7 @@ const MyStatusBar = () => (
       <View
         style={{
           height: 24,
-          backgroundColor: '#133046',
+          backgroundColor: color.greyDarker,
         }}
       />
     )}

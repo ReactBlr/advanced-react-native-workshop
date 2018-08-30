@@ -1,6 +1,7 @@
 import React from 'react';
 import { ActivityIndicator, FlatList, StyleSheet, View, Text } from 'react-native';
 import ProductCard from '../components/ProductCard';
+import color from '../theme/color';
 
 const GET_DATA_URL = 'http://www.mocky.io/v2/5b35cb7c2f0000692d3763c5';
 
@@ -63,9 +64,10 @@ export default FeedScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: color.greyLighter,
   },
   headerContainer: {
-    backgroundColor: '#133046',
+    backgroundColor: color.greyDark,
     padding: 8,
     flexDirection: 'row',
     alignItems: 'center',
@@ -75,7 +77,7 @@ const styles = StyleSheet.create({
     width: 32,
   },
   headerText: {
-    color: 'white',
+    color: color.greyLighter,
     marginLeft: 8,
     fontWeight: '400',
     fontSize: 16,

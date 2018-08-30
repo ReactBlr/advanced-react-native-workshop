@@ -1,12 +1,13 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import Ionicons from 'react-native-vector-icons/FontAwesome';
 import { withNavigation } from 'react-navigation';
+import color from '../theme/color';
 
 const Header = ({ navigation, title, subtitle }) => (
   <View style={styles.header}>
     <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
-      <Ionicons name="ios-arrow-back" size={24} color="purple" />
+      <Ionicons name="close" size={24} color={color.greyDarker} />
     </TouchableOpacity>
     <View>
       {!!title && (
@@ -27,7 +28,7 @@ export default withNavigation(Header);
 
 const styles = StyleSheet.create({
   header: {
-    backgroundColor: '#133046',
+    backgroundColor: color.greyLighter,
     flexDirection: 'row',
     alignItems: 'center',
     height: 44,
