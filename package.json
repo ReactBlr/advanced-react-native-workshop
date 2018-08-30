@@ -1,7 +1,8 @@
 {
   "name": "react-native-notebook",
-  "description": "A not so simple boilerplate with some alleged React Native best practices. ",
+  "description": "A not so simple boilerplate with some alleged React Native best practices.",
   "slug": "react-native-notebook",
+  "repository": "https://github.com/ReactBangalore/advanced-react-native-workshop",
   "license": "MIT",
   "version": "0.0.1",
   "private": true,
@@ -29,6 +30,5 @@
   },
   "jest": {
     "preset": "react-native"
-  },
-  "repository": "https://github.com/ReactBangalore/advanced-react-native-workshop"
+  }
 }
