@@ -9,6 +9,7 @@ import {
 import PostCard from '../components/PostCard';
 import color from '../theme/color';
 import config from '../config';
+import shuffle from '../utils/shuffle';
 
 const GET_DATA_URL = `${config.baseUrl}/posts`;
 class FeedScreen extends React.Component {
@@ -28,7 +29,8 @@ class FeedScreen extends React.Component {
   callApi = async () => {
     try {
       const response = await fetch(GET_DATA_URL);
-      const data = await response.json();
+      let data = await response.json();
+      data = shuffle(data);
       this.setState({ isLoading: false, data });
     } catch (err) {
       console.warn(err);
