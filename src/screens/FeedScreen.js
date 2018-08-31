@@ -30,8 +30,8 @@ class FeedScreen extends React.Component {
   callApi = async () => {
     try {
       const response = await fetch(GET_DATA_URL);
-      let data = await response.json();
-      data = shuffle(data);
+      const data = await response.json();
+      // data = shuffle(data);
       this.setState({ isLoading: false, data });
     } catch (err) {
       console.warn(err);

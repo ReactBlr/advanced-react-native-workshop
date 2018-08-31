@@ -82,8 +82,8 @@ class NewPostScreen extends React.Component {
     const { navigation } = this.props;
     const { state: { params } } = navigation;
 
-    const title = this.titleRef._lastNativeText || '';
-    const description = this.descriptionRef._lastNativeText || '';
+    const title = this.titleRef._lastNativeText || params.title;
+    const description = this.descriptionRef._lastNativeText || params.description;
 
     try {
       await fetch(`${PUT_DATA_URL}/${params.id}`, {
@@ -133,7 +133,7 @@ class NewPostScreen extends React.Component {
           onPress={isEditPost ? this.handleEditPost : this.handleSubmitPost}
         >
           <SubmitButtonText>
-            Create Post
+            {isEditPost ? 'Edit Post' : 'Create Post'}
           </SubmitButtonText>
         </SubmitButton>
       </KeyboardAvoidingView>
