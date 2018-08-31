@@ -1,5 +1,10 @@
 import React from 'react';
-import { StyleSheet, SafeAreaView, TouchableOpacity } from 'react-native';
+import {
+  StyleSheet,
+  SafeAreaView,
+  TouchableOpacity,
+  Linking,
+} from 'react-native';
 import MyStatusBar from './src/components/MyStatusBar';
 import RootNavigation from './src/navigation/RootNavigation';
 import color from './src/theme/color';
@@ -28,6 +33,18 @@ class App extends React.Component {
       console.disableYellowBox = true;
       showApiCalls();
     }
+  }
+
+  componentDidMount() {
+    Linking.addEventListener('url', this._handleOpenURL);
+  }
+
+  componentWillUnmount() {
+    Linking.removeEventListener('url', this._handleOpenURL);
+  }
+
+  _handleOpenURL = (event) => {
+    alert('Opened Via Deep Link', event);
   }
 
   render() {
