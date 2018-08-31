@@ -1,10 +1,10 @@
 # Advanced React Native Workshop
 
+
 ## Problem Statement
 
 To create a React Native Notes App with all CRUD operations, and to discuss some more advanced concepts.
 
----
 
 ## Workshop Agenda
 
@@ -19,12 +19,9 @@ To create a React Native Notes App with all CRUD operations, and to discuss some
 7. Discuss great UI practices
 8. Adding Deep Linking to your app
 
----
 
 ## Setting up the Server
 
 1. `npm install -g json-server`
 2. In the root of this repo is a folder called jsonServer - `cd` to that
 3. `json-server --watch db.json`
-
----
