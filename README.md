@@ -20,6 +20,19 @@ To create a React Native Notes App with all CRUD operations, and to discuss some
 8. Adding Deep Linking to your app
 
 
+## Getting started
+
+You can verify your dependencies in the **Build Projects with Native Code** section of https://facebook.github.io/react-native/docs/getting-started.html 
+
+#### First Terminal Window
+1. Clone this repo and run `yarn` or `npm install`
+2. `npm start`
+
+#### Second Terminal Window
+1. `npm install -g react-native-cli`
+2. `react-native run-ios` or `react-native run-android`
+
+
 ## Setting up the Server
 
 1. `npm install -g json-server`
