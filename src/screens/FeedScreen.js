@@ -1,5 +1,11 @@
 import React from 'react';
-import { ActivityIndicator, FlatList, StyleSheet, View, Text } from 'react-native';
+import {
+  ActivityIndicator,
+  FlatList,
+  StyleSheet,
+  View,
+  Text,
+} from 'react-native';
 import PostCard from '../components/PostCard';
 import color from '../theme/color';
 import config from '../config';
@@ -56,6 +62,8 @@ class FeedScreen extends React.Component {
                   item={item}
                 />
               )}
+              onRefresh={this.callApi}
+              refreshing={isLoading}
             />
           )
         }
