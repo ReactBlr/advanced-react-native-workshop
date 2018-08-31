@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components/native';
 import Ionicons from 'react-native-vector-icons/FontAwesome';
 import color from '../theme/color';
+import config from '../config';
 
 const Card = styled.TouchableOpacity`
   backgroundColor: ${color.greyLighter};
@@ -65,8 +66,23 @@ class PostCard extends React.Component {
     navigation.navigate('NewPost', post);
   }
 
-  handleDeleteOption = () => {
+  handleDeleteOption = async () => {
+    const { navigation, post: { id } } = this.props;
+    const DELETE_DATA_URL = `${config.baseUrl}/posts/${id}`;
 
+    try {
+      await fetch(DELETE_DATA_URL, {
+        method: 'DELETE',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+      });
+      alert('Post Deleted Successfully');
+      navigation.goBack();
+    } catch (err) {
+      alert('An error occurred!');
+    }
   }
 
   render() {

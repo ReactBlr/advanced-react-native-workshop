@@ -12,9 +12,6 @@ import config from '../config';
 
 const isPlatformIOS = Platform.OS === 'ios';
 
-const POST_DATA_URL = `${config.baseUrl}/posts`;
-const PUT_DATA_URL = `${config.baseUrl}/posts`;
-
 const TitleInput = styled.TextInput`
   backgroundColor: ${color.white};
   borderRadius: 4px;
@@ -60,6 +57,8 @@ class NewPostScreen extends React.Component {
 
   handleSubmitPost = async () => {
     const { navigation } = this.props;
+
+    const POST_DATA_URL = `${config.baseUrl}/posts`;
     const title = this.titleRef._lastNativeText || '';
     const description = this.descriptionRef._lastNativeText || '';
 
@@ -82,11 +81,12 @@ class NewPostScreen extends React.Component {
     const { navigation } = this.props;
     const { state: { params } } = navigation;
 
+    const PUT_DATA_URL = `${config.baseUrl}/posts/${params.id}`;
     const title = this.titleRef._lastNativeText || params.title;
     const description = this.descriptionRef._lastNativeText || params.description;
 
     try {
-      await fetch(`${PUT_DATA_URL}/${params.id}`, {
+      await fetch(PUT_DATA_URL, {
         method: 'PUT',
         headers: {
           Accept: 'application/json',
