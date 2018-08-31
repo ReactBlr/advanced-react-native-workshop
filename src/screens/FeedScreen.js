@@ -12,6 +12,7 @@ import config from '../config';
 import shuffle from '../utils/shuffle';
 
 const GET_DATA_URL = `${config.baseUrl}/posts`;
+
 class FeedScreen extends React.Component {
   constructor(props) {
     super(props);
@@ -61,7 +62,7 @@ class FeedScreen extends React.Component {
               renderItem={({ item }) => (
                 <PostCard
                   navigation={navigation}
-                  item={item}
+                  post={item}
                 />
               )}
               onRefresh={this.callApi}

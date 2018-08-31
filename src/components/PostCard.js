@@ -5,16 +5,20 @@ import color from '../theme/color';
 class PostCard extends React.Component {
   state = {};
 
+  onCardPress = () => {
+    const { post, navigation } = this.props;
+    navigation.navigate('SinglePost', post);
+  }
+
   render() {
-    const { navigation, item } = this.props;
-    const { title, description } = item;
+    const { post } = this.props;
+    const { title, description } = post;
     const summary = description.length < 200
       ? description : `${description.slice(0, 200)}...`;
 
     return (
       <TouchableOpacity
-        onPress={() => navigation.navigate('SinglePost')}
-        activeOpacity={0.8}
+        onPress={this.onCardPress}
         style={styles.card}
       >
         <Text style={styles.title}>{title}</Text>
