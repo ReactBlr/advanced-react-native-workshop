@@ -1,9 +1,9 @@
 import React from 'react';
 import { ActivityIndicator, FlatList, StyleSheet, View, Text } from 'react-native';
-import ProductCard from '../components/ProductCard';
+import PostCard from '../components/PostCard';
 import color from '../theme/color';
 
-const GET_DATA_URL = 'http://www.mocky.io/v2/5b35cb7c2f0000692d3763c5';
+const GET_DATA_URL = 'https://jsonplaceholder.typicode.com/todos/1';
 
 class FeedScreen extends React.Component {
   constructor(props) {
@@ -40,20 +40,22 @@ class FeedScreen extends React.Component {
             Dear Diary
           </Text>
         </View>
-        {isLoading
-          ? <ActivityIndicator style={styles.activityIndicator} size="large" />
-          : (
+        {
+          isLoading ? (
+            <ActivityIndicator
+              style={styles.activityIndicator}
+              size="large"
+            />
+          ) : (
             <FlatList
               data={data}
               keyExtractor={(item) => item.id}
               renderItem={({ item }) => (
-                <ProductCard
-                  product={item}
-                  navigation={navigation}
-                />
+                <PostCard navigation={navigation} item={item} />
               )}
             />
-          )}
+          )
+        }
       </View>
     );
   }
@@ -71,10 +73,7 @@ const styles = StyleSheet.create({
     padding: 8,
     flexDirection: 'row',
     alignItems: 'center',
-  },
-  headerImage: {
-    height: 32,
-    width: 32,
+    height: 48,
   },
   headerText: {
     color: color.greyLighter,

@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
   },
 });
 
-TouchableOpacity.propTypes = {
+TouchableOpacity.defaultProps = {
   ...TouchableOpacity.defaultProps,
   activeOpacity: 0.8,
 };

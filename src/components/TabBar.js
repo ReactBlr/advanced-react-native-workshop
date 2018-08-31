@@ -12,9 +12,7 @@ const TabBarContainer = styled.View`
   height: 64;
 `;
 
-const Button = styled.TouchableOpacity.attrs({
-  activeOpacity: 0.8,
-})`
+const Button = styled.TouchableOpacity`
   width: 48;
   height: 48;
   alignItems: center;
@@ -40,7 +38,7 @@ class TabBar extends React.Component {
 
   openNewPostScreen = () => {
     const { navigation } = this.props;
-    navigation.navigate('Product');
+    navigation.navigate('NewPost');
   }
 
   openOther = () => {
