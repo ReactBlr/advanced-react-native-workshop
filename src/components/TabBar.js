@@ -22,8 +22,7 @@ const Button = styled.TouchableOpacity`
 const Icon = styled(Ionicons).attrs({
   size: 32,
   color: (props) => props.selected ? color.greyLighter : color.grey,
-})`
-`;
+})``;
 
 class TabBar extends React.Component {
   state = {
