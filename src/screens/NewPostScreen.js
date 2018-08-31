@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  View,
+  ScrollView,
   StyleSheet,
   KeyboardAvoidingView,
   Platform,
@@ -27,6 +27,7 @@ const DescriptionInput = styled.TextInput`
   borderRadius: 4px;
   fontSize: 14;
   height: 200px;
+  textAlignVertical: top;
 `;
 
 const SubmitButton = styled.TouchableOpacity`
@@ -52,7 +53,7 @@ class NewPostScreen extends React.Component {
 
   checkIfEditPost = () => {
     const { navigation: { state: { params } } } = this.props;
-    this.setState({ isEditPost: !!params.id });
+    this.setState({ isEditPost: !!params });
   }
 
   handleSubmitPost = async () => {
@@ -107,11 +108,14 @@ class NewPostScreen extends React.Component {
     return (
       <KeyboardAvoidingView
         style={styles.container}
-        behavior="padding"
+        behavior={isPlatformIOS ? 'padding' : null}
         keyboardVerticalOffset={isPlatformIOS ? 18 : 0}
       >
         <Header />
-        <View style={styles.content}>
+        <ScrollView
+          style={styles.content}
+          keyboardShouldPersistTaps="handled"
+        >
           <TitleInput
             innerRef={(x) => { this.titleRef = x; }}
             placeholder="Your awesome title..."
@@ -128,7 +132,7 @@ class NewPostScreen extends React.Component {
             multiline
             defaultValue={isEditPost ? params.description : ''}
           />
-        </View>
+        </ScrollView>
         <SubmitButton
           onPress={isEditPost ? this.handleEditPost : this.handleSubmitPost}
         >

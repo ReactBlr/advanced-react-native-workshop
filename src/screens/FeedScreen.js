@@ -9,7 +9,7 @@ import {
 import PostCard from '../components/PostCard';
 import color from '../theme/color';
 import config from '../config';
-import shuffle from '../utils/shuffle';
+// import shuffle from '../utils/shuffle';
 
 const GET_DATA_URL = `${config.baseUrl}/posts`;
 
@@ -46,7 +46,7 @@ class FeedScreen extends React.Component {
       <View style={styles.container}>
         <View style={styles.headerContainer}>
           <Text style={styles.headerText}>
-            {'🤷🏻‍♂️ Ipsum'}
+            {'Ipsum Diary'}
           </Text>
         </View>
         {
