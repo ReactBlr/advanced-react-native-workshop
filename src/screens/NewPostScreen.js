@@ -8,8 +8,10 @@ import {
 import styled from 'styled-components/native';
 import Header from '../components/Header';
 import color from '../theme/color';
+import config from '../config';
 
 const isPlatformIOS = Platform.OS === 'ios';
+const POST_DATA_URL = `${config.baseUrl}/posts`;
 
 const TitleInput = styled.TextInput`
   backgroundColor: ${color.white};
@@ -41,15 +43,24 @@ const SubmitButtonText = styled.Text`
 `;
 
 class NewPostScreen extends React.Component {
-  handleBuyNow = () => {
-    const { navigation: { state: { params } } } = this.props;
-    alert(`Handle buy now for ${params.title}`);
-  }
-
-  handleSubmitPost = () => {
+  handleSubmitPost = async () => {
     const { navigation } = this.props;
-    alert('Post submit here');
-    navigation.goBack();
+    const title = this.titleRef._lastNativeText || '';
+    const description = this.descriptionRef._lastNativeText || '';
+
+    try {
+      await fetch(POST_DATA_URL, {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ title, description }),
+      });
+      navigation.goBack();
+    } catch (err) {
+      alert('An error occurred!');
+    }
   }
 
   render() {
@@ -62,6 +73,7 @@ class NewPostScreen extends React.Component {
         <Header />
         <View style={styles.content}>
           <TitleInput
+            innerRef={(x) => { this.titleRef = x; }}
             placeholder="Your awesome title..."
             underlineColorAndroid="transparent"
             autoFocus

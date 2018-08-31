@@ -7,7 +7,9 @@ class PostCard extends React.Component {
 
   render() {
     const { navigation, item } = this.props;
-    const { title, summary } = item;
+    const { title, description } = item;
+    const summary = description.length < 200
+      ? description : `${description.slice(0, 200)}...`;
 
     return (
       <TouchableOpacity
