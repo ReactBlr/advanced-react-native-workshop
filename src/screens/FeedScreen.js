@@ -37,7 +37,7 @@ class FeedScreen extends React.Component {
       <View style={styles.container}>
         <View style={styles.headerContainer}>
           <Text style={styles.headerText}>
-            Dear Diary
+            {'🤷🏻‍♂️ Ipsum'}
           </Text>
         </View>
         {
@@ -81,8 +81,8 @@ const styles = StyleSheet.create({
   headerText: {
     color: color.greyLighter,
     marginLeft: 8,
-    fontWeight: '400',
-    fontSize: 16,
+    fontWeight: '600',
+    fontSize: 24,
   },
   activityIndicator: {
     paddingTop: 40,
