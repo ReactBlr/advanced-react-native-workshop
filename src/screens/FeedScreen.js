@@ -2,9 +2,9 @@ import React from 'react';
 import { ActivityIndicator, FlatList, StyleSheet, View, Text } from 'react-native';
 import PostCard from '../components/PostCard';
 import color from '../theme/color';
+import config from '../config';
 
-const GET_DATA_URL = 'https://jsonplaceholder.typicode.com/todos/1';
-
+const GET_DATA_URL = `${config.baseUrl}/posts`;
 class FeedScreen extends React.Component {
   constructor(props) {
     super(props);
@@ -22,7 +22,7 @@ class FeedScreen extends React.Component {
   callApi = async () => {
     try {
       const response = await fetch(GET_DATA_URL);
-      const { data } = await response.json();
+      const data = await response.json();
       this.setState({ isLoading: false, data });
     } catch (err) {
       console.warn(err);
@@ -51,7 +51,10 @@ class FeedScreen extends React.Component {
               data={data}
               keyExtractor={(item) => item.id}
               renderItem={({ item }) => (
-                <PostCard navigation={navigation} item={item} />
+                <PostCard
+                  navigation={navigation}
+                  item={item}
+                />
               )}
             />
           )
@@ -66,7 +69,7 @@ export default FeedScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: color.greyLighter,
+    backgroundColor: color.greyLight,
   },
   headerContainer: {
     backgroundColor: color.greyDark,

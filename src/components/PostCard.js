@@ -1,18 +1,23 @@
 import React from 'react';
-import { TouchableOpacity, StyleSheet } from 'react-native';
+import { TouchableOpacity, StyleSheet, Text } from 'react-native';
+import color from '../theme/color';
 
 class PostCard extends React.Component {
   state = {};
 
   render() {
-    const { navigation } = this.props;
+    const { navigation, item } = this.props;
+    const { title, summary } = item;
 
     return (
       <TouchableOpacity
         onPress={() => navigation.navigate('SinglePost')}
         activeOpacity={0.8}
         style={styles.card}
-      />
+      >
+        <Text style={styles.title}>{title}</Text>
+        <Text style={styles.content}>{summary}</Text>
+      </TouchableOpacity>
     );
   }
 }
@@ -21,28 +26,20 @@ export default PostCard;
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: 'white',
+    backgroundColor: color.greyLighter,
     marginTop: 16,
     borderRadius: 2,
     elevation: 1,
-    flexDirection: 'row',
-    padding: 8,
-  },
-  image: {
-    height: 120,
-    width: 120,
+    padding: 16,
   },
   title: {
-    fontWeight: '500',
+    fontWeight: '600',
     fontSize: 18,
+    color: color.greyDarkest,
   },
-  price: {
-    paddingTop: 8,
+  content: {
+    paddingTop: 16,
     fontSize: 16,
-  },
-  soldOutText: {
-    paddingTop: 8,
-    color: '#fc6c85',
-    fontWeight: '500',
+    color: color.greyDarker,
   },
 });
