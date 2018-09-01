@@ -19,8 +19,19 @@ To create a React Native Notes App with all CRUD operations, and to discuss some
 6. Debugging like a pro
     - Demo React Native Debugger
     - Demo Reactotron
-7. Discuss great UI practices
-8. Adding Deep Linking to your app
+7. Adding Deep Linking to your app
+8. UI Automation Testing on Device Farm
+
+9. Discussing FlatLists
+10. Discussing Geolocation
+
+11. Stroybook
+12. Testing with Jest
+13. Error tracking with Sentry
+
+14. Codepush in action
+15. Using App center for CI/CD of React Native apps
+16. How to publish the app to testflight/beta store
 
 
 ## Getting started
