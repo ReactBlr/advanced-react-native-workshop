@@ -1,25 +1,10 @@
-import React from 'react';
-import { StyleSheet, SafeAreaView, TouchableOpacity } from 'react-native';
-import MyStatusBar from './src/components/MyStatusBar';
-import RootNavigation from './src/navigation/RootNavigation';
-import color from './src/theme/color';
-import './ReactotronConfig';
-
-const showApiCalls = () => {
-  const baseUrl = 'http://www.mocky.io/';
-  global._fetch = fetch;
-  global.fetch = async (uri, options, ...args) => {
-    const response = await global._fetch(uri, options, ...args);
-    if (uri.includes(baseUrl)) {
-      console.log(
-        '🔵 API Call: ',
-        uri,
-        { request: { uri }, response },
-      );
-    }
-    return response;
-  };
-};
+import React from "react";
+import { StyleSheet, SafeAreaView, TouchableOpacity } from "react-native";
+import MyStatusBar from "./src/components/MyStatusBar";
+import RootNavigation from "./src/navigation/RootNavigation";
+import FlatListDemo from "./src/screens/FlatListScreen";
+import color from "./src/theme/color";
+import "./ReactotronConfig";
 
 class App extends React.Component {
   constructor(props) {
@@ -27,7 +12,6 @@ class App extends React.Component {
 
     if (__DEV__) {
       console.disableYellowBox = true;
-      showApiCalls();
     }
   }
 
@@ -35,7 +19,8 @@ class App extends React.Component {
     return (
       <SafeAreaView style={styles.container}>
         <MyStatusBar />
-        <RootNavigation />
+        {/* <RootNavigation /> */}
+        <FlatListDemo />
       </SafeAreaView>
     );
   }
@@ -46,11 +31,11 @@ export default App;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: color.greyDarker,
-  },
+    backgroundColor: color.white
+  }
 });
 
 TouchableOpacity.defaultProps = {
   ...TouchableOpacity.defaultProps,
-  activeOpacity: 0.8,
+  activeOpacity: 0.8
 };
