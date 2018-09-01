@@ -1,5 +1,8 @@
 # Advanced React Native Workshop
 
+## In Iteration 8
+
+In this branch you can find the implementation of deep linking. A deeplink of form https://ipsumdiary.io on Android or ipsumdiary:// will open the app and you'll see the URL being displayed in the header.
 
 ## Problem Statement
 
