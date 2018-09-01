@@ -61,7 +61,7 @@ class LoginScreen extends React.Component {
               <TextInput
                 ref={(x) => { this.usernameRef = x; }}
                 style={styles.textInput}
-                placeholder="Username"
+                placeholder="Username (admin)"
                 maxLength={10}
                 autoCapitalize="none"
                 underlineColorAndroid="transparent"
@@ -71,7 +71,7 @@ class LoginScreen extends React.Component {
               <TextInput
                 ref={(x) => { this.passwordRef = x; }}
                 style={styles.textInput}
-                placeholder="Password"
+                placeholder="Password (password)"
                 maxLength={32}
                 secureTextEntry
                 autoCapitalize="none"
