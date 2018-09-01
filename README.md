@@ -1,10 +1,11 @@
-# Advanced React Native Workshop
+# Advanced React Native Workshop - Ipsum Diary
 
 
 ## Problem Statement
 
 To create a React Native Notes App with all CRUD operations, and to discuss some more advanced concepts.
 
+<img src="./docs/assets/Homepage.png" alt="drawing" width="200"/>
 
 ## Workshop Agenda
 
