@@ -3,6 +3,7 @@ import { StyleSheet, SafeAreaView, TouchableOpacity } from 'react-native';
 import MyStatusBar from './src/components/MyStatusBar';
 import RootNavigation from './src/navigation/RootNavigation';
 import color from './src/theme/color';
+import './ReactotronConfig';
 
 const showApiCalls = () => {
   const baseUrl = 'http://www.mocky.io/';
