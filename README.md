@@ -1,5 +1,8 @@
 # Advanced React Native Workshop - Ipsum Diary
 
+## In Iteration 3
+
+Starting the JSON Server and fetching some posts in a FlatList
 
 ## Problem Statement
 
