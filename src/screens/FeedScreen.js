@@ -1,47 +1,15 @@
 import React from 'react';
 import {
-  ActivityIndicator,
-  FlatList,
   StyleSheet,
   View,
   Text,
 } from 'react-native';
-import PostCard from '../components/PostCard';
 import color from '../theme/color';
-import config from '../config';
-// import shuffle from '../utils/shuffle';
-
-const GET_DATA_URL = `${config.baseUrl}/posts`;
 
 class FeedScreen extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      isLoading: true,
-      data: [],
-    };
-  }
-
-  componentDidMount() {
-    this.callApi();
-  }
-
-  callApi = async () => {
-    try {
-      const response = await fetch(GET_DATA_URL);
-      const data = await response.json();
-      // data = shuffle(data);
-      this.setState({ isLoading: false, data });
-    } catch (err) {
-      console.warn(err);
-    }
-  }
+  state={};
 
   render() {
-    const { navigation } = this.props;
-    const { isLoading, data } = this.state;
-
     return (
       <View style={styles.container}>
         <View style={styles.headerContainer}>
@@ -49,27 +17,6 @@ class FeedScreen extends React.Component {
             {'Ipsum Diary'}
           </Text>
         </View>
-        {
-          isLoading ? (
-            <ActivityIndicator
-              style={styles.activityIndicator}
-              size="large"
-            />
-          ) : (
-            <FlatList
-              data={data}
-              keyExtractor={(item) => item.id}
-              renderItem={({ item }) => (
-                <PostCard
-                  navigation={navigation}
-                  post={item}
-                />
-              )}
-              onRefresh={this.callApi}
-              refreshing={isLoading}
-            />
-          )
-        }
       </View>
     );
   }
@@ -94,8 +41,5 @@ const styles = StyleSheet.create({
     marginLeft: 8,
     fontWeight: '600',
     fontSize: 24,
-  },
-  activityIndicator: {
-    paddingTop: 40,
   },
 });

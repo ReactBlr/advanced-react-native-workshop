@@ -8,7 +8,6 @@ import {
 import styled from 'styled-components/native';
 import Header from '../components/Header';
 import color from '../theme/color';
-import config from '../config';
 
 const isPlatformIOS = Platform.OS === 'ios';
 
@@ -43,62 +42,12 @@ const SubmitButtonText = styled.Text`
 `;
 
 class NewPostScreen extends React.Component {
-  state = {
-    isEditPost: false,
-  }
-
-  componentDidMount() {
-    this.checkIfEditPost();
-  }
-
-  checkIfEditPost = () => {
-    const { navigation: { state: { params } } } = this.props;
-    this.setState({ isEditPost: !!params });
-  }
+  state = {}
 
   handleSubmitPost = async () => {
-    const { navigation } = this.props;
-
-    const POST_DATA_URL = `${config.baseUrl}/posts`;
     const title = this.titleRef._lastNativeText || '';
     const description = this.descriptionRef._lastNativeText || '';
-
-    try {
-      await fetch(POST_DATA_URL, {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ title, description }),
-      });
-      navigation.goBack();
-    } catch (err) {
-      alert('An error occurred!');
-    }
-  }
-
-  handleEditPost = async () => {
-    const { navigation } = this.props;
-    const { state: { params } } = navigation;
-
-    const PUT_DATA_URL = `${config.baseUrl}/posts/${params.id}`;
-    const title = this.titleRef._lastNativeText || params.title;
-    const description = this.descriptionRef._lastNativeText || params.description;
-
-    try {
-      await fetch(PUT_DATA_URL, {
-        method: 'PUT',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ title, description }),
-      });
-      navigation.goBack();
-    } catch (err) {
-      alert('An error occurred!');
-    }
+    alert(JSON.stringify({ title, description }, ':', 2));
   }
 
   render() {
@@ -134,10 +83,10 @@ class NewPostScreen extends React.Component {
           />
         </ScrollView>
         <SubmitButton
-          onPress={isEditPost ? this.handleEditPost : this.handleSubmitPost}
+          onPress={this.handleSubmitPost}
         >
           <SubmitButtonText>
-            {isEditPost ? 'Edit Post' : 'Create Post'}
+            Create Post
           </SubmitButtonText>
         </SubmitButton>
       </KeyboardAvoidingView>
