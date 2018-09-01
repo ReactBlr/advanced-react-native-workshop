@@ -96,28 +96,49 @@ class PostCard extends React.Component {
       <Card
         onPress={this.handleOnCardPress}
         onLongPress={this.handleLongCardPress}
+        testID="post-card"
+        accessibilityLabel="post-card"
       >
         <TitleContainer>
-          <Title numberOfLines={1}>
+          <Title
+            numberOfLines={1}
+            testID="title-text"
+            accessibilityLabel="title-text"
+          >
             {title}
           </Title>
           {
             isShowingOptions ? (
               <OptionsContainer>
-                <Option onPress={this.handleEditOption}>
+                <Option
+                  onPress={this.handleEditOption}
+                  testID="edit-option"
+                  accessibilityLabel="edit-option"
+                >
                   <Ionicons name="pencil" size={16} color={color.green} />
                 </Option>
-                <Option onPress={this.handleDeleteOption}>
+                <Option
+                  onPress={this.handleDeleteOption}
+                  testID="delete-option"
+                  accessibilityLabel="delete-option"
+                >
                   <Ionicons name="trash" size={16} color={color.red} />
                 </Option>
-                <Option onPress={this.handleCloseOption}>
+                <Option
+                  onPress={this.handleCloseOption}
+                  testID="close-option"
+                  accessibilityLabel="close-option"
+                >
                   <Ionicons name="close" size={16} />
                 </Option>
               </OptionsContainer>
             ) : null
           }
         </TitleContainer>
-        <Summary>
+        <Summary
+          testID="summary-text"
+          accessibilityLabel="summary-text"
+        >
           {summary}
         </Summary>
       </Card>
