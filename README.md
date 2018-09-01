@@ -16,7 +16,9 @@ To create a React Native Notes App with all CRUD operations, and to discuss some
     - Use NewPostScreen to make a new post
     - List all the posts on the ListingScreen
 5. Add Edit Post and Delete Post options
-6. Debugging like a pro - Demo 
+6. Debugging like a pro
+    - Demo React Native Debugger
+    - Demo Reactotron
 7. Discuss great UI practices
 8. Adding Deep Linking to your app
 
