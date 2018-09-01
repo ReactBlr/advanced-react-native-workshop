@@ -1,5 +1,9 @@
 # Advanced React Native Workshop - Ipsum Diary
 
+## In Iteration 2
+
+Boilerplate code with some basic screens, a Stack Navigator and a custom Bottom Tab Navigator
+
 
 ## Problem Statement
 
