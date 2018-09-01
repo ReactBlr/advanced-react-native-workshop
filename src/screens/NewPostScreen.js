@@ -43,19 +43,6 @@ const SubmitButtonText = styled.Text`
 `;
 
 class NewPostScreen extends React.Component {
-  state = {
-    isEditPost: false,
-  }
-
-  componentDidMount() {
-    this.checkIfEditPost();
-  }
-
-  checkIfEditPost = () => {
-    const { navigation: { state: { params } } } = this.props;
-    this.setState({ isEditPost: !!params });
-  }
-
   handleSubmitPost = async () => {
     const { navigation } = this.props;
 
@@ -78,33 +65,7 @@ class NewPostScreen extends React.Component {
     }
   }
 
-  handleEditPost = async () => {
-    const { navigation } = this.props;
-    const { state: { params } } = navigation;
-
-    const PUT_DATA_URL = `${config.baseUrl}/posts/${params.id}`;
-    const title = this.titleRef._lastNativeText || params.title;
-    const description = this.descriptionRef._lastNativeText || params.description;
-
-    try {
-      await fetch(PUT_DATA_URL, {
-        method: 'PUT',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ title, description }),
-      });
-      navigation.goBack();
-    } catch (err) {
-      alert('An error occurred!');
-    }
-  }
-
   render() {
-    const { isEditPost } = this.state;
-    const { navigation: { state: { params } } } = this.props;
-
     return (
       <KeyboardAvoidingView
         style={styles.container}
@@ -123,21 +84,19 @@ class NewPostScreen extends React.Component {
             autoFocus
             onSubmitEditing={() => this.descriptionRef.focus()}
             returnKeyType="next"
-            defaultValue={isEditPost ? params.title : ''}
           />
           <DescriptionInput
             innerRef={(x) => { this.descriptionRef = x; }}
             placeholder="Put that Ipsum here..."
             underlineColorAndroid="transparent"
             multiline
-            defaultValue={isEditPost ? params.description : ''}
           />
         </ScrollView>
         <SubmitButton
-          onPress={isEditPost ? this.handleEditPost : this.handleSubmitPost}
+          onPress={this.handleSubmitPost}
         >
           <SubmitButtonText>
-            {isEditPost ? 'Edit Post' : 'Create Post'}
+            Create Post
           </SubmitButtonText>
         </SubmitButton>
       </KeyboardAvoidingView>
