@@ -1,5 +1,8 @@
 # Advanced React Native Workshop - Ipsum Diary
 
+# In Iteration 5
+
+The full working app with Edit and Delete functionality on long press of a card
 
 ## Problem Statement
 
