@@ -22,8 +22,10 @@ export default class List extends Component {
       page: 1,
       seed: 1,
       error: null,
-      refreshing: false
+      refreshing: false,
+      input: ""
     };
+    this.inputSearch = "";
   }
 
   componentDidMount() {
@@ -80,7 +82,11 @@ export default class List extends Component {
           underlineColorAndroid={"transparent"}
           placeholder={"Search"}
           onChangeText={text => this.searchFilterFunction(text)}
+          value={this.inputSearch}
         />
+        {this.inputSearch.length > 0 && (
+          <Text>{this.state.filteredData.length} items found</Text>
+        )}
       </View>
     );
   };
@@ -105,6 +111,7 @@ export default class List extends Component {
   };
 
   searchFilterFunction = text => {
+    this.inputSearch = text;
     const newData = this.state.data.filter(item => {
       const itemData = `${item.name.first.toUpperCase()} ${item.name.last.toUpperCase()}`;
       const textData = text.toUpperCase();
@@ -114,19 +121,22 @@ export default class List extends Component {
   };
 
   handleRefresh = () => {
-    this.setState({ refreshing: true, seed: Math.random() }, () =>
+    this.setState({ refreshing: true, seed: Math.random(), page: 1 }, () =>
       this.makeRemoteRequest()
     );
   };
 
-  handleOnEndReached = () => {
-    console.log("inside on end reached");
-    this.setState(
-      (state, props) => {
-        return { loading: true, page: state.page + 1 };
-      },
-      () => this.makeRemoteRequest()
-    );
+  handleOnEndReached = info => {
+    if (info.distanceFromEnd >= -10) {
+      this.inputSearch.length === 0 &&
+        !this.state.loading &&
+        this.setState(
+          (state, props) => {
+            return { loading: true, page: state.page + 1 };
+          },
+          () => this.makeRemoteRequest()
+        );
+    }
   };
 
   render() {
@@ -163,6 +173,14 @@ export default class List extends Component {
         onRefresh={this.handleRefresh}
         onEndReachedThreshold={0.9}
         onEndReached={this.handleOnEndReached}
+        initialNumToRender={8}
+        maxToRenderPerBatch={2}
+        onMomentumScrollBegin={() => {
+          console.log("onMomentumScrollStart...");
+        }}
+        onMomentumScrollEnd={() => {
+          console.log("onMomentumScrollEnd!!!");
+        }}
       />
     );
   }
