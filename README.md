@@ -1,5 +1,9 @@
 # Advanced React Native Workshop - Ipsum Diary
 
+# In Iteration 5
+
+Just a copy of Master branch. Here we'll discuss about the UX and PixelRatio.
+An example of PixelRatio implemented by me is shown in https://github.com/treebohotels/leaf-ui/pull/99.
 
 ## Problem Statement
 
