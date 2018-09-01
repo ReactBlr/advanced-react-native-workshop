@@ -28,7 +28,11 @@
     "eslint-plugin-react": "7.11.1",
     "jest": "23.5.0",
     "react-test-renderer": "16.4.2",
-    "reactotron-react-native": "2.1.0"
+    "reactotron-react-native": "2.1.0",
+    "babel-core": "^6.26.3",
+    "babel-runtime": "^6.26.0",
+    "react-dom": "16.3.1",
+    "prop-types": "^15.6.2"
   },
   "jest": {
     "preset": "react-native"
