@@ -1,5 +1,8 @@
 # Advanced React Native Workshop - Ipsum Diary
 
+## In Iteration 1
+
+Boilerplate code.
 
 ## Problem Statement
 
