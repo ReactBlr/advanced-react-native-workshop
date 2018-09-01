@@ -1,5 +1,8 @@
 # Advanced React Native Workshop - Ipsum Diary
 
+## In Iteration 9
+
+In this branch you can find that I have added testIDs and accessibilityLabel prop to the components being used in PostCard.js. These are used for implementing UI testing and I will give you a demo of a test running on Amazon Device Farm.
 
 ## Problem Statement
 
